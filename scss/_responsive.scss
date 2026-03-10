@@ -1,0 +1,229 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Pantallas menores a 1920px
+@include respond-to(xxl) {
+    body {
+        overflow-x: auto;
+    }
+}
+
+// Breakpoint 1400px
+@include respond-to(xl) {
+    .page-wrapper {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    
+    .main-content {
+        padding: 1.5rem 3rem 3rem 3rem;
+        background-size: 75%;
+        background-position: 95% bottom;
+    }
+    
+    .hero {
+        gap: 2rem;
+        
+        &-left {
+            h1 {
+                font-size: 52px;
+                line-height: 66px;
+            }
+            
+            .description {
+                font-size: 20px;
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+    
+    .nav-menu {
+        gap: 1.8rem;
+    }
+    
+    .nav-actions {
+        gap: 1rem;
+    }
+    
+    .card1 {
+        transform: translateX(0) translateY(120px);
+        margin-right: 0;
+    }
+    
+    .card2 {
+        transform: translateX(0) translateY(150px);
+        margin-right: 0;
+    }
+}
+
+// Breakpoint 992px
+@include respond-to(lg) {
+    .bg-beige, .bg-green, .bg-white-bottom, .flower-svg-bg {
+        display: none;
+    }
+    
+    .page-wrapper {
+        background-color: $background-beige;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    
+    .main-content {
+        padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+        background-image: none;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+    
+    .nav-actions {
+        align-self: flex-end;
+        margin-top: -1.5rem;
+    }
+    
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        
+        &-left {
+            max-width: 100%;
+            
+            h1 {
+                font-size: 42px;
+                line-height: 54px;
+            }
+            
+            .description {
+                font-size: 18px;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        &-buttons {
+            margin-bottom: 2.5rem;
+        }
+        
+        &-right {
+            align-items: center;
+            padding-top: 0;
+            margin-top: 2rem;
+            width: 100%;
+        }
+    }
+    
+    .feature-grid {
+        max-width: 100%;
+        margin-top: 1rem;
+        padding: 1.5rem 0;
+    }
+    
+    .testimonial-card {
+        position: static;
+        transform: none !important;
+        margin: 0 0 1.5rem 0;
+        max-width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(4px);
+    }
+    
+    .card1, .card2 {
+        margin-right: 0;
+        transform: none;
+    }
+    
+    .feature-item {
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .feature-number {
+            font-size: 28px;
+        }
+        
+        .feature-text {
+            font-size: 16px;
+        }
+    }
+}
+
+// Breakpoint 576px
+@include respond-to(sm) {
+    .hero-left h1 {
+        font-size: 34px;
+        line-height: 44px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .nav-actions {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+    
+    .sign-links {
+        gap: 0.8rem;
+        
+        a:last-child {
+            padding: 0.5rem 1.2rem;
+            font-size: 16px;
+        }
+    }
+    
+    .feature-grid {
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+    
+    .icon-circle {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .feature-number {
+        font-size: 24px;
+    }
+}
+
+// Rango 993-1400px
+@media (min-width: 993px) and (max-width: 1400px) {
+    .bg-beige, .bg-green, .bg-white-bottom, .flower-svg-bg {
+        display: block;
+    }
+    
+    .bg-green {
+        width: 35%;
+    }
+    
+    .flower-svg-bg {
+        left: 1150px;
+        width: 400px;
+        height: auto;
+    }
+}
+
+// Mayores a 1400px
+@media (min-width: 1401px) {
+    .bg-beige, .bg-green, .bg-white-bottom, .flower-svg-bg {
+        display: block;
+    }
+}

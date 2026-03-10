@@ -1,0 +1,112 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+    margin-right: 3rem;
+    flex-wrap: wrap;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 700;
+    color: $primary-dark;
+    letter-spacing: -0.5px;
+    
+    span {
+        color: $primary-green;
+    }
+}
+
+.nav-menu {
+    display: flex;
+    gap: 4rem;
+    font-weight: 500;
+    color: $primary-dark;
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 18px;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    .more-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: default;
+        
+        i {
+            font-size: 0.75rem;
+            color: $text-gray;
+        }
+    }
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 0;
+    z-index: 30;
+    
+    i {
+        font-size: 20px;
+        color: $primary-dark;
+        cursor: default;
+        
+        &:hover {
+            transform: scale(1.15);
+            cursor: pointer;
+        }
+    }
+    
+    .bag-icon {
+        position: relative;
+    }
+    
+    .sign-divider {
+        width: 1px;
+        height: 22px;
+        background: #b7c3d3;
+    }
+    
+    .sign-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        
+        a:first-child {
+            color: $primary-dark;
+            text-decoration: underline;
+            margin-left: 0.8rem;
+            font-weight: 400;
+            font-size: 18px;
+            
+            &:hover {
+                text-decoration-color: $primary-green;
+            }
+        }
+        
+        a:last-child {
+            background-color: $primary-dark;
+            text-decoration: none;
+            color: $white;
+            @include button-base;
+            box-shadow: $shadow-button;
+            
+            &:hover {
+                background-color: #101b29;
+            }
+        }
+    }
+}

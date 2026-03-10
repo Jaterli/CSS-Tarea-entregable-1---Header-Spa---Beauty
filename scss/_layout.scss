@@ -1,0 +1,67 @@
+@use 'variables' as *;
+
+.page-wrapper {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: $background-beige;
+    box-shadow: $shadow-soft;
+}
+
+// Capas de fondo
+.bg-beige {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    background-color: $background-beige;
+    z-index: 1;
+}
+
+.bg-green {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32%;
+    height: 100%;
+    background-color: $primary-green;
+    z-index: 1;
+}
+
+.bg-white-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: $white;
+    z-index: 2;
+}
+
+.flower-svg-bg {
+    position: absolute;
+    left: 1350px;
+    transform: translateX(-25%) translateY(23%);
+    width: 472.5px;
+    height: 436.59px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.main-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    padding: 1.8rem 10rem 2rem 10rem;
+    background-image: url('../assets/30f53723d6cf4245c6d4f518fd6fa57f431e1561.png');
+    background-size: 85%;
+    background-position: 130% 60%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}

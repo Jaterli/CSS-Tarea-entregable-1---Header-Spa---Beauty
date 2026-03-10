@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin button-base {
+    border: none;
+    border-radius: 32px;
+    padding: 0.9rem 2.2rem;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+@mixin transition-base {
+    transition: all 0.25s ease;
+}
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == sm {
+        @media (max-width: $breakpoint-sm) { @content; }
+    } @else if $breakpoint == lg {
+        @media (max-width: $breakpoint-lg) { @content; }
+    } @else if $breakpoint == xl {
+        @media (max-width: $breakpoint-xl) { @content; }
+    } @else if $breakpoint == xxl {
+        @media (max-width: $breakpoint-xxl) { @content; }
+    }
+}
