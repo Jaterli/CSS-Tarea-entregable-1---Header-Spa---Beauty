@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,14 +22,25 @@
             <nav>
                 <div class="logo">Glow<span>Queen</span></div>
 
-                <div class="nav-menu">
+                <div class="nav-menu" id="navMenu">
                     <a href="#">Home</a>
                     <a href="#">About</a>
                     <a href="#">Services</a>
                     <a href="#">Facilities</a>
-                    <div class="more-wrapper">
+                    <div class="more-wrapper" id="moreWrapper">
                         More <i class="fas fa-chevron-down"></i>
-                        <div class="hidden-links"></div>
+                        <div class="dropdown-menu">
+                            <a href="#">Treatments</a>
+                            <a href="#">Specialists</a>
+                            <a href="#">Blog</a>
+                            <a href="#">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Enlaces de Sign In/Up para móvil (se muestran solo en menú hamburguesa) -->
+                    <div class="mobile-sign-links">
+                        <a href="#">Sign In</a>
+                        <a href="#">Sign Up</a>
                     </div>
                 </div>
 
@@ -40,7 +52,18 @@
                         <a href="#">Sign In</a>
                         <a href="#">Sign Up</a>
                     </div>
-                </div>                                
+
+                <!-- Botón de menú hamburguesa -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                </div>     
+                
+
+
             </nav>
             <div class="hero">
                 <!-- Columna izquierda -->
@@ -99,5 +122,52 @@
 
         </div>
     </div>
+
+    <!-- Script para el menú hamburguesa y dropdown -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const moreWrapper = document.getElementById('moreWrapper');
+
+            // Toggle menú hamburguesa
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+                menuToggle.classList.toggle('open');
+            });
+
+            // Cerrar menú al hacer clic en un enlace (opcional)
+            const menuLinks = navMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('open');
+                    menuToggle.classList.remove('open');
+                });
+            });
+
+            // Toggle dropdown de "More"
+            moreWrapper.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('open');
+            });
+
+            // Cerrar dropdown al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                if (!moreWrapper.contains(e.target)) {
+                    moreWrapper.classList.remove('open');
+                }
+            });
+
+            // Cerrar menú al hacer clic fuera (opcional, mejora UX)
+            document.addEventListener('click', function(e) {
+                if (navMenu.classList.contains('open') && 
+                    !navMenu.contains(e.target) && 
+                    !menuToggle.contains(e.target)) {
+                    navMenu.classList.remove('open');
+                    menuToggle.classList.remove('open');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

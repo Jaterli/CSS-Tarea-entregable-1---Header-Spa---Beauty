@@ -1,3 +1,4 @@
+// scss/_responsive.scss
 @use 'variables' as *;
 @use 'mixins' as *;
 
@@ -5,6 +6,11 @@
 @include respond-to(xxl) {
     body {
         overflow-x: auto;
+    }
+    .page-wrapper {
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
     }
 }
 
@@ -78,20 +84,23 @@
     }
     
     nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
         margin-bottom: 2rem;
+        margin-right: 0; 
     }
     
     .nav-menu {
-        flex-wrap: wrap;
-        gap: 1.2rem;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
     }
     
     .nav-actions {
-        align-self: flex-end;
-        margin-top: -1.5rem;
+        align-self: center;
+        margin-top: 0;
+        gap: 1rem;
     }
     
     .hero {
@@ -180,15 +189,7 @@
         margin-top: 0;
     }
     
-    .sign-links {
-        gap: 0.8rem;
-        
-        a:last-child {
-            padding: 0.5rem 1.2rem;
-            font-size: 16px;
-        }
-    }
-    
+    // Los estilos de sign-links en móvil ahora se manejan en navigation.scss
     .feature-grid {
         gap: 0.5rem;
         padding: 1rem 0;
@@ -201,6 +202,10 @@
     
     .feature-number {
         font-size: 24px;
+    }
+
+    .logo {
+        font-size: 32px;
     }
 }
 
