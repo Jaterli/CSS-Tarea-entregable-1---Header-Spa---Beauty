@@ -111,7 +111,7 @@
 
     .nav-menu {
         flex-wrap: nowrap;
-        gap: 0.5rem;
+        gap: 1rem;
     }
     
     .nav-actions {
@@ -188,6 +188,11 @@
 
 // Breakpoint 576px
 @include respond-to(sm) {
+    
+    .main-content {
+        padding-top: 6rem;
+    }
+
     .hero-left h1 {
         font-size: 34px;
         line-height: 44px;
